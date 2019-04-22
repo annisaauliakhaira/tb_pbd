@@ -50,11 +50,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="tgl_pembelian">Tanggal Pembelian</label>
-                        <input type="date" value="<?php echo $data['tgl_pembelian']; ?>" name="tgl_pembelian" class="form-control" required>
-                    </div>
-
-                    <div class="form-group">
                         <label class="control-label" for="th_pembuatan">Tahun Pembuatan</label>
                         <input type="text" value="<?php echo $data['th_pembuatan']; ?>" name="th_pembuatan" class="form-control" required>
                     </div>

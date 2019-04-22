@@ -11,9 +11,9 @@
 			return $hasil;
 		}
 
-		function input($kode_barang, $no_seri,$kondisi,$tgl_pembelian,$th_pembuatan,$kode_persetujuan,$kode_merk,$keterangan){
+		function input($kode_barang, $no_seri,$kondisi,$th_pembuatan,$kode_persetujuan,$kode_merk,$keterangan){
 			// die(far_dump([nama_pegawai, $nama_barang, $alamat, $keterangan]));
-			$sql="insert into barang values('$kode_barang', '$no_seri', '$kondisi', '$tgl_pembelian', '$th_pembuatan', '$kode_persetujuan', '$kode_merk', '$keterangan')";
+			$sql="insert into barang values('$kode_barang', '$no_seri', '$kondisi', '$th_pembuatan', '$kode_persetujuan', '$kode_merk', '$keterangan')";
 			$hasil = pg_query($sql);
 			header("location:/pbd?page=barang");
 		}
@@ -24,9 +24,9 @@
 			header("location:/pbd?page=barang");
 		}
 
-		function update($kode_barang, $no_seri,$kondisi,$tgl_pembelian,$th_pembuatan,$kode_persetujuan,$kode_merk,$keterangan){
+		function update($kode_barang, $no_seri,$kondisi,$th_pembuatan,$kode_persetujuan,$kode_merk,$keterangan){
 			// die(far_dump([nama_pegawai, $nama_barang, $alamat, $keterangan]));
-			$sql="update barang set no_seri='$no_seri', kondisi='$kondisi', tgl_pembelian='$tgl_pembelian', th_pembuatan='$th_pembuatan', kode_persetujuan='$kode_persetujuan', kode_merk='$kode_merk', keterangan='$keterangan' where kode_barang='$kode_barang' ";
+			$sql="update barang set no_seri='$no_seri', kondisi='$kondisi', th_pembuatan='$th_pembuatan', kode_persetujuan='$kode_persetujuan', kode_merk='$kode_merk', keterangan='$keterangan' where kode_barang='$kode_barang' ";
 			$hasil = pg_query($sql);
 			header("location:/pbd?page=barang");
 		}

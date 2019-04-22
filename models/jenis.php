@@ -1,7 +1,7 @@
 <?php
 	class jenis {
 		private $mysqli;
-
+ 
 		function __construct($conn){
 			$this->mysqli=$conn;
 		}
