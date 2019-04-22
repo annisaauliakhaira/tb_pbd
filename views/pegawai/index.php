@@ -42,13 +42,19 @@
 					<td><?php echo $data->nipp; ?></td>
 					<td><?php echo $data->nama_pegawai; ?></td>
 					<td><?php echo $data->alamat; ?></td>
-					<td><?php echo $data->kode_jabatan; ?></td>
-					<td><?php echo $data->kode_cabang; ?></td>
-					<td><?php echo $data->jenis_kelamin; ?></td>
+					<td><?php echo $data->nama_jabatan; ?></td>
+					<td><?php echo $data->nama_cabang; ?></td>
+					<td><?php 
+						if ($data->jenis_kelamin ==1){
+							echo "laki-laki";
+						}elseif ($data->jenis_kelamin ==2) {
+							echo "perempuan";
+						}
+					 ?></td>
 					<td><?php echo $data->keterangan; ?></td>
 					<td align="center">
-						<a href="/pbd?page=pegawai&aksi=edit&kode_pegawai='<?php echo $data->kode_pegawai; ?>'" class="btn btn-info btn-xs"><i class="fa fa-edit"></i> Edit </a>
-        				<a href="/pbd/controller/pegawai_controller.php?aksi=delete&id='<?php echo $data->kode_pegawai; ?>'" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+						<a href="/pbd?page=pegawai&aksi=edit&nipp='<?php echo $data->nipp; ?>'" class="btn btn-info btn-xs"><i class="fa fa-edit"></i> Edit </a>
+        				<a href="/pbd/controller/pegawai_controller.php?aksi=delete&id='<?php echo $data->nipp; ?>'" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
 					</td>
 				</tr>
                 <?php } ?>

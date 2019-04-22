@@ -46,15 +46,37 @@
             <li><a href="?page=dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
            
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-shopping-chart"></i> Inventaris <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-shopping-chart"></i> Pegawai <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="?page=cabang">Cabang</a></li>
                 <li><a href="?page=pegawai">Pegawai</a></li>
                 <li><a href="?page=jabatan">Jabatan</a></li>
-                <li><a href="?page=jenis">Jenis</a></li>
-                <li><a href="?page=merk">Merek/Model</a></li>
+                <li><a href="?page=pengajuan">Pengajuan</a></li>
+                <li><a href="?page=persetujuan">Persetujuan</a></li>
+
               </ul>
             </li>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-shopping-chart"></i> Barang <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="?page=cabang">Cabang</a></li>
+                <li><a href="?page=jenis">Jenis</a></li>
+                <li><a href="?page=merk">Merek/Model</a></li>
+                <li><a href="?page=barang">Barang</a></li>
+                <li><a href="?page=cabang_barang">Cabang Barang</a></li>
+                
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-shopping-chart"></i> Mutasi <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="?page=mutasi">Mutasi</a></li>
+                <li><a href="?page=mutasi_barang">Mutasi Barang</a></li>
+                
+              </ul>
+            </li>
+
           </ul>
 
           <ul class="nav navbar-nav navbar-right navbar-user">
@@ -90,6 +112,39 @@
                   }
                 }else{
                   include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/cabang/index.php';
+                }
+              }elseif($page=='barang'){  
+                if(isset($_GET['aksi'])){
+                  $aksi = $_GET['aksi'];
+                  if ($aksi=='tambah') {
+                    include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/barang/create.php';
+                  }elseif($aksi=='edit'){
+                    include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/barang/edit.php';
+                  }
+                }else{
+                  include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/barang/index.php';
+                }
+              }elseif($page=='cabang_barang'){  
+                if(isset($_GET['aksi'])){
+                  $aksi = $_GET['aksi'];
+                  if ($aksi=='tambah') {
+                    include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/cabang_barang/create.php';
+                  }elseif($aksi=='edit'){
+                    include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/cabang_barang/edit.php';
+                  }
+                }else{
+                  include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/cabang_barang/index.php';
+                }
+              }elseif($page=='mutasi_barang'){  
+                if(isset($_GET['aksi'])){
+                  $aksi = $_GET['aksi'];
+                  if ($aksi=='tambah') {
+                    include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/mutasi_barang/create.php';
+                  }elseif($aksi=='edit'){
+                    include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/mutasi_barang/edit.php';
+                  }
+                }else{
+                  include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/mutasi_barang/index.php';
                 }
               }elseif($page=='jabatan'){  
                 if(isset($_GET['aksi'])){
@@ -135,6 +190,39 @@
                   }
                 }else{
                   include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/pegawai/index.php';
+                }
+              }elseif($page=='pengajuan'){  
+                if(isset($_GET['aksi'])){
+                  $aksi = $_GET['aksi'];
+                  if ($aksi=='tambah') {
+                    include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/pengajuan/create.php';
+                  }elseif($aksi=='edit'){
+                    include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/pengajuan/edit.php';
+                  }
+                }else{
+                  include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/pengajuan/index.php';
+                }
+              }elseif($page=='persetujuan'){  
+                if(isset($_GET['aksi'])){
+                  $aksi = $_GET['aksi'];
+                  if ($aksi=='tambah') {
+                    include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/persetujuan/create.php';
+                  }elseif($aksi=='edit'){
+                    include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/persetujuan/edit.php';
+                  }
+                }else{
+                  include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/persetujuan/index.php';
+                }
+              }elseif($page=='mutasi'){  
+                if(isset($_GET['aksi'])){
+                  $aksi = $_GET['aksi'];
+                  if ($aksi=='tambah') {
+                    include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/mutasi/create.php';
+                  }elseif($aksi=='edit'){
+                    include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/mutasi/edit.php';
+                  }
+                }else{
+                  include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/mutasi/index.php';
                 }
               }
             }

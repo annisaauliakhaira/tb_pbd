@@ -16,7 +16,7 @@
             <div class="row">
 
                     <div class="form-group">
-                        <label class="control-label" for="kode_pegawai">Kode pegawai</label>
+                        <label class="control-label" for="kode_pegawai">NIPP</label>
                         <input type="text" name="kode_pegawai" class="form-control" required>
                     </div>
 
@@ -30,6 +30,42 @@
                         <input type="text" name="alamat" class="form-control" required>
                     </div>
 
+                    <div class="form-group">
+                        <label class="control-label" for="kode_jabatan">Jabatan</label>
+                         <select class="form-control" name="kode_jabatan">
+				              <?php
+				                $sql = "select kode_jabatan, nama_jabatan from jabatan";
+				                $eksekusi = pg_query($sql);
+				                while ($jabatan = pg_fetch_assoc($eksekusi)) {
+				                echo '<option value="'.$jabatan['kode_jabatan'].'">'.$jabatan['nama_jabatan'].'</option>';
+				                }
+				              ?>
+				          </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="kode_cabang">Cabang</label>
+                         <select class="form-control" name="kode_cabang">
+				              <?php
+				                $sql = "select kode_cabang, nama_cabang from cabang";
+				                $eksekusi = pg_query($sql);
+				                while ($cabang = pg_fetch_assoc($eksekusi)) {
+				                echo '<option value="'.$cabang['kode_cabang'].'">'.$cabang['nama_cabang'].'</option>';
+				                }
+				              ?>
+				          </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="jenis_kelamin">Jenis Kelamin</label>
+                        <select name="jenis_kelamin" class="form-control" >
+                    		<option value="1">laki-laki</option>
+                    		<option value="2">perempuan</option>
+                   		</select>
+
+                    </div>
+
+                    
                     <div class="form-group">
                         <label class="control-label" for="keterangan">Keterangan</label>
                         <input type="text"  name="keterangan" class="form-control" required>

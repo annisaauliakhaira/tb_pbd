@@ -16,18 +16,18 @@
             <div class="row">
 
                 <?php 
-                    if(isset($_GET['kode_pegawai'])){
-                        $kode_pegawai = $_GET['kode_pegawai'];
+                    if(isset($_GET['nipp'])){
+                        $nipp = $_GET['nipp'];
                     }else{
-                        $kode_pegawai = 0;
+                        $nipp = 0;
                     }
-                    $sql="select * from pegawai where kode_pegawai=$kode_pegawai";
+                    $sql="select * from pegawai where nipp=$nipp";
                     $hasil = pg_query($sql);
                     while($data = pg_fetch_assoc($hasil)){
                 ?>
                     <div class="form-group">
-                        <label class="control-label" for="kode_pegawai">Kode pegawai</label>
-                        <input type="text" value="<?php echo $data['kode_pegawai']; ?>" name="kode_pegawai" class="form-control" required readonly>
+                        <label class="control-label" for="nipp">Kode pegawai</label>
+                        <input type="text" value="<?php echo $data['nipp']; ?>" name="nipp" class="form-control" required readonly>
                     </div>
 
                     <div class="form-group">
@@ -38,6 +38,41 @@
                     <div class="form-group">
                         <label class="control-label" for="alamat">Alamat</label>
                         <input type="text" value="<?php echo $data['alamat']; ?>" name="alamat" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="kode_jabatan">Jabatan</label>
+                         <select class="form-control" name="kode_jabatan">
+                              <?php
+                                $sql = "select kode_jabatan, nama_jabatan from jabatan";
+                                $eksekusi = pg_query($sql);
+                                while ($jabatan = pg_fetch_assoc($eksekusi)) {
+                                echo '<option value="'.$jabatan['kode_jabatan'].'">'.$jabatan['nama_jabatan'].'</option>';
+                                }
+                              ?>
+                          </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="kode_cabang">Cabang</label>
+                         <select class="form-control" name="kode_cabang">
+                              <?php
+                                $sql = "select kode_cabang, nama_cabang from cabang";
+                                $eksekusi = pg_query($sql);
+                                while ($cabang = pg_fetch_assoc($eksekusi)) {
+                                echo '<option value="'.$cabang['kode_cabang'].'">'.$cabang['nama_cabang'].'</option>';
+                                }
+                              ?>
+                          </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="jenis_kelamin">Jenis Kelamin</label>
+                        <select name="jenis_kelamin" class="form-control" >
+                            <option value="1">laki-laki</option>
+                            <option value="2">perempuan</option>
+                        </select>
+
                     </div>
 
                     <div class="form-group">
