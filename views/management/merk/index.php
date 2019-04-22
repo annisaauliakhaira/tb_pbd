@@ -5,12 +5,27 @@
 
  <div class="row">
   <div class="col-lg-12">
-    <h1>merk <small>Data merk</small></h1>
-    <a href="/pbd?page=merk&aksi=tambah">Tambah Data</a>
+    <h1>Merk / Model <small>Data Merek / Model</small></h1>
+    <button><a href="/pbd?page=merk&aksi=tambah">Tambah Data</a></button>
     <br><br>
     <ol class="breadcrumb">
       <li><a href="index.html"><i class="icon-dashboard"></i> Dashboard</a></li>
       <li class="active"><i class="icon-file-alt"></i> Merek/Model</li>
+      <li>
+      	<form action="" method="get">
+		<label>  Cari :</label>
+		<input type="hidden" value="merk" name="page">
+		<input type="text" name="cari">
+		<input type="submit" value="Cari">
+		</form>	
+
+		<?php 
+			if(isset($_GET['cari'])){
+				$cari = $_GET['cari'];
+				echo "<b>Hasil pencarian : ".$cari."</b>";
+			}
+		?>
+	  </li>
     </ol>
   </div>
 </div><!-- /.row -->
@@ -25,10 +40,13 @@
 					<th>Nama Merek</th>
 					<th>Action</th>
 				</tr>
-
+ 
                 <?php
                     $no = 1;
                     $tampil = $merk->tampil();
+                    if(isset($_GET['cari'])){
+                    	$tampil = $merk->cari($cari);
+                    }
                     while ($data = pg_fetch_object($tampil)) {
                 ?>
 

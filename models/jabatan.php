@@ -30,5 +30,13 @@
 			$hasil = pg_query($sql);
 			header("location:/pbd?page=jabatan");
 		}
+
+		public function cari($cari){
+				$sql = "SELECT * from jabatan where  kode_jabatan LIKE'%$cari%' OR nama_jabatan LIKE '%$cari%' ";
+			
+			// die($sql);
+			$hasil = pg_query($sql);
+			return $hasil;
+		}
 	}
 ?>

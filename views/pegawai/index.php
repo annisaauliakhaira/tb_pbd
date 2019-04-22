@@ -5,12 +5,31 @@
 
  <div class="row">
   <div class="col-lg-12">
-    <h1>pegawai <small>Data pegawai</small></h1>
-    <a href="/pbd?page=pegawai&aksi=tambah">Tambah Data</a>
+    <h1>Pegawai <small>Data Pegawai</small></h1>
+
+    <button><a href="/pbd?page=pegawai&aksi=tambah">Tambah Data</a></button>
+    <button><a href="/pbd/views/pegawai/cetak.php" target="_blank">CETAK</a></button>
+    
     <br><br>
     <ol class="breadcrumb">
       <li><a href="index.html"><i class="icon-dashboard"></i> Dashboard</a></li>
-      <li class="active"><i class="icon-file-alt"></i> pegawai</li>
+      <li class="active"><i class="icon-file-alt"></i> Pegawai</li>
+      <li>
+      	<form action="" method="get">
+		<label>  Cari :</label>
+		<input type="hidden" value="pegawai" name="page">
+		<input type="text" name="cari">
+		<input type="submit" value="Cari">
+		</form>	
+
+		<?php 
+			if(isset($_GET['cari'])){
+				$cari = $_GET['cari'];
+				echo "<b>Hasil pencarian : ".$cari."</b>";
+			}
+		?>
+	  </li>
+
     </ol>
   </div>
 </div><!-- /.row -->
@@ -34,6 +53,9 @@
                 <?php
                     $no = 1;
                     $tampil = $pegawai->tampil();
+                    if(isset($_GET['cari'])){
+                    	$tampil = $pegawai->cari($cari);
+                    }
                     while ($data = pg_fetch_object($tampil)) {
                 ?>
 

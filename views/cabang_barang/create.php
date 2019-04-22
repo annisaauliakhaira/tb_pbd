@@ -12,7 +12,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<form action="http://localhost/pbd/controller/cabang_barang_controller.php?aksi=tambah" method="post">
+		<form action="/pbd/controller/cabang_barang_controller.php?aksi=tambah" method="post">
             <div class="row">
 
                    
@@ -64,6 +64,16 @@
                     <div class="form-group">
                         <label class="control-label" for="no_livret">Dokumentasi Barang No Livret</label>
                         <input type="text" name="no_livret" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="jumlah_barang">Jumlah Barang</label>
+                        <input type="text" name="jumlah_barang" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="satuan">Satuan</label>
+                        <input type="text" name="satuan" class="form-control" required>
                     </div>
 
             </div>

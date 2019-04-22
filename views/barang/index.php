@@ -7,7 +7,8 @@
   <div class="col-lg-12">
     <h1>Barang <small>Data Barang</small></h1>
     <h4></h4>
-    <a href="/pbd?page=barang&aksi=tambah">Tambah Data</a>
+    <button><a href="/pbd?page=barang&aksi=tambah">Tambah Data</a></button>
+    <button><a href="/pbd/views/barang/cetak.php" target="_blank">CETAK</a></button>
     <br><br>
     <ol class="breadcrumb">
       <li><a href="index.html"><i class="icon-dashboard"></i> Dashboard</a></li>
@@ -50,6 +51,9 @@
                 <?php
                     $no = 1;
                     $tampil = $barang->tampil();
+                    if(isset($_GET['cari'])){
+                    	$tampil = $barang->cari($cari);
+                    }
                     while ($data = pg_fetch_object($tampil)) {
                 ?>
 

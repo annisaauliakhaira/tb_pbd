@@ -12,7 +12,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<form action="http://localhost/pbd/controller/merk_controller.php?aksi=update" method="post">
+		<form action="/pbd/controller/merk_controller.php?aksi=update" method="post">
             <div class="row">
 
                 <?php 

@@ -6,7 +6,7 @@
  <div class="row">
   <div class="col-lg-12">
     <h1>Cabang Barang <small>Data Cabang Barang</small></h1>
-    <a href="/pbd?page=cabang_barang&aksi=tambah">Tambah Data</a>
+    <button><a href="/pbd?page=cabang_barang&aksi=tambah">Tambah Data</a></button>
     <br><br>
     <ol class="breadcrumb">
       <li><a href="index.html"><i class="icon-dashboard"></i> Dashboard</a></li>
@@ -26,6 +26,8 @@
 					<th>Status</th>
 					<th>Kondisi Barang</th>
 					<th>No Livret</th>
+					<th>Jumlah Barang</th>
+					<th>Satuan</th>
 					<th>Action</th>
 				</tr>
 
@@ -51,6 +53,8 @@
 						?>
 					</td>
 					<td><?php echo $data->no_livret; ?></td>
+					<td><?php echo $data->jumlah_barang; ?></td>
+					<td><?php echo $data->satuan; ?></td>
 					<td align="center">
 						<a href="/pbd?page=cabang_barang&aksi=edit&kode_cabang='<?php echo $data->kode_cabang; ?>' &kode_barang='<?php echo $data->kode_barang; ?>'" class="btn btn-info btn-xs"><i class="fa fa-edit"></i> Edit </a>
         				<a href="/pbd/controller/cabang_barang_controller.php?aksi=delete&kode_cabang='<?php echo $data->kode_cabang; ?>' &kode_barang='<?php echo $data->kode_barang; ?>'" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>

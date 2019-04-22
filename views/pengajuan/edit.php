@@ -11,7 +11,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<form action="http://localhost/pbd/controller/pengajuan_controller.php?aksi=update" method="post">
+		<form action="/pbd/controller/pengajuan_controller.php?aksi=update" method="post">
             <div class="row">
 
                 <?php 
@@ -29,9 +29,17 @@
                         <input type="text" value="<?php echo $data['kode_pengajuan']; ?>" name="kode_pengajuan" class="form-control" required readonly>
                     </div>
 
-                    <div class="form-group">
+                     <div class="form-group">
                         <label class="control-label" for="nama_jenis">Jenis Barang</label>
-                        <input type="text" value="<?php echo $data['nama_jenis']; ?>" name="nama_jenis" class="form-control" required>
+                        <select class="form-control" name="kode_jenis" value="kode_jenis">
+                              <?php
+                                $sql = "select kode_jenis, nama_jenis from jenis";
+                                $eksekusi = pg_query($sql);
+                                while ($jenis = pg_fetch_assoc($eksekusi)) {
+                                echo '<option value="'.$jenis['kode_jenis'].'">'.$jenis['nama_jenis'].'</option>';
+                                }
+                              ?>
+                          </select>
                     </div>
 
                     <div class="form-group">
@@ -40,13 +48,21 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="tgl_pengajuan">Tanggal Pengajuan</label>
-                        <input type="date" value="<?php echo $data['tgl_pengajuan']; ?>" name="tgl_pengajuan" class="form-control" required readonly>
+                        <label class="control-label" for="total">Jumlah Barang</label>
+                        <input type="text" value="<?php echo $data['total']; ?>" name="total" class="form-control" required>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="nama_pegawai">Pegawai</label>
-                        <input type="text" value="<?php echo $data['nama_pegawai']; ?>" name="nama_pegawai" class="form-control" required>
+                        <label class="control-label" for="nipp">Pegawai</label>
+                         <select class="form-control" name="nipp" value="nipp">
+                              <?php
+                                $sql = "select nipp, nama_pegawai from pegawai";
+                                $eksekusi = pg_query($sql);
+                                while ($pegawai = pg_fetch_assoc($eksekusi)) {
+                                echo '<option value="'.$pegawai['nipp'].'">'.$pegawai['nama_pegawai'].'</option>';
+                                }
+                              ?>
+                          </select>
                     </div>
 
                     <div class="form-group">

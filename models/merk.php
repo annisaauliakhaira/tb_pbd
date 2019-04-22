@@ -30,5 +30,17 @@
 			$hasil = pg_query($sql);
 			header("location:/pbd?page=merk");
 		}
+
+		public function cari($cari){
+			if((int)$cari==0){
+				$sql = "SELECT * from merk_modal where  nama_merk LIKE '%$cari%' ";
+			}else{
+				//ada integer
+				$sql = "SELECT * from merk_modal where  kode_merk=$cari OR nama_merk LIKE '%$cari%' ";
+			}
+			// die($sql);
+			$hasil = pg_query($sql);
+			return $hasil;
+		}
 	}
 ?>

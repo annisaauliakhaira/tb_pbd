@@ -30,5 +30,11 @@
 			$hasil = pg_query($sql);
 			header("location:/pbd?page=barang");
 		}
+
+		public function cari($cari){
+			$sql = "SELECT barang.kode_barang, barang.no_seri, barang.kode_persetujuan, barang.kondisi, jenis.nama_jenis, merk_modal.nama_merk from barang join merk_modal on merk_modal.kode_merk=barang.kode_merk join persetujuan on barang.kode_persetujuan=persetujuan.kode_persetujuan join pengajuan on persetujuan.kode_pengajuan=pengajuan.kode_pengajuan join jenis on pengajuan.kode_jenis=jenis.kode_jenis where barang.kode_barang LIKE '%$cari%' ";
+			$hasil = pg_query($sql);
+			return $hasil;
+		}
 	}
 ?>

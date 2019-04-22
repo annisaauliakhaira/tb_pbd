@@ -13,7 +13,7 @@
 			$db->delete($_GET['id']);
 		}
 		elseif ($aksi == "update") {
-			$db->update($_POST['kode_pengajuan'], $_POST['nama_jenis'], $_POST['tgl_pengajuan'], $_POST['total'], $_POST['nama_pegawai'], $_POST['keterangan']);
+			$db->update($_POST['kode_pengajuan'], $_POST['kode_jenis'], $_POST['tgl_pengajuan'], $_POST['total'], $_POST['nipp'], $_POST['keterangan']);
 		}	
 	}else{
 		header("location:/pbd?page=pengajuan");

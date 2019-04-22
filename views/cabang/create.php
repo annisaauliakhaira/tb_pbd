@@ -12,7 +12,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<form action="http://localhost/pbd/controller/cabang_controller.php?aksi=tambah" method="post">
+		<form action="/pbd/controller/cabang_controller.php?aksi=tambah" method="post">
             <div class="row">
 
                     <div class="form-group">

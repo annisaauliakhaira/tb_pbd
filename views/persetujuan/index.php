@@ -6,7 +6,8 @@
  <div class="row">
   <div class="col-lg-12">
     <h1>persetujuan <small>Data persetujuan</small></h1>
-    <a href="/pbd?page=persetujuan&aksi=tambah">Tambah Data</a>
+    <button><a href="/pbd?page=persetujuan&aksi=tambah">Tambah Data</a></button>
+    <button><a href="/pbd/views/persetujuan/cetak.php" target="_blank">CETAK</a></button>
     <br><br>
     <ol class="breadcrumb">
       <li><a href="index.html"><i class="icon-dashboard"></i> Dashboard</a></li>

@@ -6,7 +6,7 @@
  <div class="row">
   <div class="col-lg-12">
     <h1>Mutasi Barang <small>Data Mutasi Barang</small></h1>
-    <a href="/pbd?page=mutasi_barang&aksi=tambah">Tambah Data</a>
+    <button><a href="/pbd?page=mutasi_barang&aksi=tambah">Tambah Data</a></button>
     <br><br>
     <ol class="breadcrumb">
       <li><a href="index.html"><i class="icon-dashboard"></i> Dashboard</a></li>

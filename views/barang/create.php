@@ -12,7 +12,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<form action="http://localhost/pbd/controller/barang_controller.php?aksi=tambah" method="post">
+		<form action="pbd/controller/barang_controller.php?aksi=tambah" method="post">
             <div class="row">
 
                     <div class="form-group">
@@ -49,7 +49,7 @@
                         <label class="control-label" for="kode_persetujuan">Kode Persetujuan</label>
                         <select class="form-control" name="kode_persetujuan">
                               <?php
-                                $sql = "select persetujuan.kode_persetujuan from persetujuan join pengajuan on persetujuan.kode_pengajuan = pengajuan.kode_pengajuan where pengajuan.total > (select count(barang.kode_barang) from barang where barang.kode_persetujuan = persetujuan.kode_persetujuan) ";
+                                $sql = "SELECT persetujuan.kode_persetujuan from persetujuan join pengajuan on persetujuan.kode_pengajuan = pengajuan.kode_pengajuan where pengajuan.total > (select count(barang.kode_barang) from barang where barang.kode_persetujuan = persetujuan.kode_persetujuan) ";
                                 $eksekusi = pg_query($sql);
                                 while ($persetujuan = pg_fetch_assoc($eksekusi)) {
                                 echo '<option value="'.$persetujuan['kode_persetujuan'].'">'.$persetujuan['kode_persetujuan'].'</option>';

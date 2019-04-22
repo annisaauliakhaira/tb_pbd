@@ -6,11 +6,28 @@
  <div class="row">
   <div class="col-lg-12">
     <h1>Pengajuan <small>Data Pengajuan</small></h1>
-    <a href="/pbd?page=pengajuan&aksi=tambah">Tambah Data</a>
+    <button><a href="/pbd?page=pengajuan&aksi=tambah">Tambah Data</a></button>
+    <button><a href="/pbd/views/pengajuan/cetak.php" target="_blank">CETAK</a></button>
     <br><br>
     <ol class="breadcrumb">
       <li><a href="index.html"><i class="icon-dashboard"></i> Dashboard</a></li>
       <li class="active"><i class="icon-file-alt"></i> Pengajuan</li>
+      <li>
+      	<form action="" method="get">
+		<label>  Cari :</label>
+		<input type="hidden" value="pengajuan" name="page">
+		<input type="text" name="cari">
+		<input type="submit" value="Cari">
+		</form>	
+
+		<?php 
+			if(isset($_GET['cari'])){
+				$cari = $_GET['cari'];
+				echo "<b>Hasil pencarian : ".$cari."</b>";
+			}
+		?>
+	  </li>
+
     </ol>
   </div>
 </div><!-- /.row -->
@@ -33,6 +50,9 @@
                 <?php
                     $no = 1;
                     $tampil = $pengajuan->tampil();
+                    if(isset($_GET['cari'])){
+                    	$tampil = $pengajuan->cari($cari);
+                    }
                     while ($data = pg_fetch_object($tampil)) {
                 ?>
 

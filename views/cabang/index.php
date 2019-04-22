@@ -2,15 +2,31 @@
 	include $_SERVER['DOCUMENT_ROOT'].'/pbd/models/cabang.php';  
 	$cabang = new cabang($connection);
 ?>
-
+ 
  <div class="row">
   <div class="col-lg-12">
     <h1>Cabang <small>Data Cabang</small></h1>
-    <a href="/pbd?page=cabang&aksi=tambah">Tambah Data</a>
+    <button><a href="/pbd?page=cabang&aksi=tambah">Tambah Data</a></button>
     <br><br>
     <ol class="breadcrumb">
       <li><a href="index.html"><i class="icon-dashboard"></i> Dashboard</a></li>
       <li class="active"><i class="icon-file-alt"></i> Cabang</li>
+      <li>
+      	<form action="" method="get">
+		<label>  Cari :</label>
+		<input type="hidden" value="cabang" name="page">
+		<input type="text" name="cari">
+		<input type="submit" value="Cari">
+		</form>	
+
+		<?php 
+			if(isset($_GET['cari'])){
+				$cari = $_GET['cari'];
+				echo "<b>Hasil pencarian : ".$cari."</b>";
+			}
+		?>
+	  </li>
+
     </ol>
   </div>
 </div><!-- /.row -->
@@ -31,6 +47,9 @@
                 <?php
                     $no = 1;
                     $tampil = $cabang->tampil();
+                    if(isset($_GET['cari'])){
+                    	$tampil = $cabang->cari($cari);
+                    }
                     while ($data = pg_fetch_object($tampil)) {
                 ?>
 

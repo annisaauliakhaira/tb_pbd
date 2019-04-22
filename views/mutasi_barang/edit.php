@@ -11,7 +11,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<form action="http://localhost/pbd/controller/mutasi_barang_controller.php?aksi=update" method="post">
+		<form action="/pbd/controller/mutasi_barang_controller.php?aksi=update" method="post">
             <div class="row">
 
                 <?php 
