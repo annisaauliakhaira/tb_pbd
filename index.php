@@ -59,8 +59,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-shopping-chart"></i> Barang <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 
-                <li><a href="?page=pengajuan">Pengajuan</a></li>
-                <li><a href="?page=persetujuan">Persetujuan</a></li>
+                <li><a href="?page=pengajuan_persetujuan">Pengajuan Persetujuan</a></li>
                 <li><a href="?page=barang">Barang</a></li>
                 <li><a href="?page=jenis">Jenis</a></li>
                 <li><a href="?page=satuan">Satuan</a></li>
@@ -194,16 +193,16 @@
                 }else{
                   include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/pegawai/index.php';
                 }
-              }elseif($page=='pengajuan'){  
+              }elseif($page=='pengajuan_persetujuan'){  
                 if(isset($_GET['aksi'])){
                   $aksi = $_GET['aksi'];
                   if ($aksi=='tambah') {
-                    include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/pengajuan/create.php';
+                    include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/pengajuan_persetujuan/create.php';
                   }elseif($aksi=='edit'){
-                    include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/pengajuan/edit.php';
+                    include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/pengajuan_persetujuan/edit.php';
                   }
                 }else{
-                  include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/pengajuan/index.php';
+                  include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/pengajuan_persetujuan/index.php';
                 }
               }elseif($page=='persetujuan'){  
                 if(isset($_GET['aksi'])){
