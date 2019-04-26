@@ -13,7 +13,7 @@
 			$db->delete($_GET['id']);
 		}
 		elseif ($aksi == "update") {
-			$db->update($_POST['kode_pengajuan_persetujuan'], $_POST['kode_jenis'], $_POST['jumlah_barang'], $_POST['kode_satuan'], $_POST['tgl_pengajuan'], $_POST['tgl_disetujui'], $_POST['nipp'], $_POST['keterangan']);
+			$db->update($_POST['kode_pengajuan_persetujuan'], $_POST['tgl_pengajuan'], $_POST['tgl_disetujui'], $_POST['kode_jenis'], $_POST['nipp'], $_POST['jumlah_barang'], $_POST['kode_satuan'], $_POST['keterangan']);
 		}
 	}else{
 		header("location:/pbd?page=pengajuan_persetujuan");

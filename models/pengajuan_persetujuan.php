@@ -25,7 +25,7 @@
 			header("location:/pbd?page=pengajuan_persetujuan");
 		}
 
-		function update($kode_pengajuan_persetujuan,$kode_jenis,$jumlah_barang,$kode_satuan,$tgl_pengajuan,$tgl_disetujui,$nipp,$keterangan){
+		function update($kode_pengajuan_persetujuan,$tgl_pengajuan,$tgl_disetujui,$kode_jenis,$nipp,$jumlah_barang,$kode_satuan,$keterangan){
 			// die(far_dump([nama_pegawai, $nama_pengajuan_persetujuan, $alamat, $keterangan]));
 			$sql="update pengajuan_persetujuan set kode_jenis='$kode_jenis', jumlah_barang='$jumlah_barang', kode_satuan='$kode_satuan', tgl_pengajuan='$tgl_pengajuan', tgl_disetujui='$tgl_disetujui', nipp='$nipp', keterangan='$keterangan' where kode_pengajuan_persetujuan='$kode_pengajuan_persetujuan' ";
 			$hasil = pg_query($sql);
