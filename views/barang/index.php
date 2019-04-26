@@ -1,8 +1,8 @@
-<?php 
-	include $_SERVER['DOCUMENT_ROOT'].'/pbd/models/barang.php';  
+<?php
+	include $_SERVER['DOCUMENT_ROOT'].'/pbd/models/barang.php';
 	$barang = new barang($connection);
 ?>
-    
+
  <div class="row">
   <div class="col-lg-12">
     <h1>Barang <small>Data Barang</small></h1>
@@ -18,9 +18,9 @@
 		<label>  Cari :</label>
 		<input type="text" name="cari">
 		<input type="submit" value="Cari">
-		</form>	
+		</form>
 
-		<?php 
+		<?php
 			if(isset($_GET['cari'])){
 				$cari = $_GET['cari'];
 				echo "<b>Hasil pencarian : ".$cari."</b>";
@@ -57,15 +57,15 @@
                     while ($data = pg_fetch_object($tampil)) {
                 ?>
 
-                
+
 				<tr>
 					<td align="center"><?php echo $no++; ?></td>
 					<td><?php echo $data->kode_barang; ?></td>
 					<td><?php echo $data->no_seri; ?></td>
-					<td><?php echo $data->kode_persetujuan; ?></td>
+					<td><?php echo $data->kode_pengajuan; ?></td>
 					<td><?php echo $data->nama_jenis; ?></td>
 					<td><?php echo $data->nama_merk; ?></td>
-					<td><?php 
+					<td><?php
 						if ($data->kondisi ==1){
 							echo "baik";
 						}elseif ($data->kondisi ==2) {
@@ -83,6 +83,6 @@
                 <?php } ?>
         		</table>
         	</div>
-        	 
+
 	</div>
 </div>
