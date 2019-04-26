@@ -45,9 +45,28 @@
                     </div>
 
                     <div class="form-group">
+                        <label class="control-label" for="kode_cabang">Cabang</label>
+                        <select class="form-control" name="kode_cabang">
+    				              <?php
+    				                $sql = "select kode_cabang, nama_cabang from cabang";
+    				                $eksekusi = pg_query($sql);
+    				                while ($cabang = pg_fetch_assoc($eksekusi)) {
+    				                echo '<option value="'.$cabang['kode_cabang'].'">'.$cabang['nama_cabang'].'</option>';
+    				                }
+    				              ?>
+        			          </select>
+                    </div>
+
+                    <div class="form-group">
                         <label class="control-label" for="kode_persetujuan">Kode Persetujuan</label>
                         <select class="form-control" name="kode_persetujuan">
-
+                          <?php
+                            $sql = "select kode_pengajuan_persetujuan, jenis.nama_jenis from pengajuan_persetujuan join jenis on pengajuan_persetujuan.kode_jenis = jenis.kode_jenis where pengajuan_persetujuan.tgl_disetujui is not null";
+                            $eksekusi = pg_query($sql);
+                            while ($select = pg_fetch_assoc($eksekusi)) {
+                            echo '<option value="'.$select['kode_pengajuan_persetujuan'].'">'.$select['kode_pengajuan_persetujuan'].'-'.$select['nama_jenis'].'</option>';
+                            }
+                          ?>
                         </select>
                     </div>
 
