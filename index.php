@@ -63,6 +63,7 @@
                 <li><a href="?page=persetujuan">Persetujuan</a></li>
                 <li><a href="?page=barang">Barang</a></li>
                 <li><a href="?page=jenis">Jenis</a></li>
+                <li><a href="?page=satuan">Satuan</a></li>
                 <li><a href="?page=merk">Merek/Model</a></li>
                 <li><a href="?page=cabang_barang">Cabang Barang</a></li>
                 
@@ -225,6 +226,17 @@
                   }
                 }else{
                   include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/mutasi/index.php';
+                }
+              }elseif($page=='satuan'){  
+                if(isset($_GET['aksi'])){
+                  $aksi = $_GET['aksi'];
+                  if ($aksi=='tambah') {
+                    include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/management/satuan/create.php';
+                  }elseif($aksi=='edit'){
+                    include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/management/satuan/edit.php';
+                  }
+                }else{
+                  include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/management/satuan/index.php';
                 }
               }
             }

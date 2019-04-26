@@ -15,7 +15,7 @@
 			// die(far_dump([$nipp, $nama_pegawai, $alamat, $keterangan]));
 			$sql="insert into pegawai values('$nipp', '$nama_pegawai', '$alamat', '$kode_jabatan', '$kode_cabang', '$jenis_kelamin', '$keterangan')";
 			$hasil = pg_query($sql);
-			// header("location:/pbd?page=pegawai");
+			header("location:/pbd?page=pegawai");
 		}
 
 		function delete($id){
