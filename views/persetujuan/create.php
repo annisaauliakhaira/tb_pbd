@@ -29,7 +29,7 @@
                         <label class="control-label" for="kode_pengajuan">Kode Pengajuan</label>
                         <select class="form-control" name="kode_pengajuan">
                               <?php
-                                $sql = "select kode_pengajuan from pengajuan";
+                                $sql = "select kode_pengajuan from pengajuan where kode_pengajuan not in (select kode_pengajuan from persetujuan)";
                                 $eksekusi = pg_query($sql);
                                 while ($pengajuan = pg_fetch_assoc($eksekusi)) {
                                 echo '<option value="'.$pengajuan['kode_pengajuan'].'">'.$pengajuan['kode_pengajuan'].'</option>';

@@ -51,8 +51,6 @@
                 <li><a href="?page=pegawai">Pegawai</a></li>
                 <li><a href="?page=jabatan">Jabatan</a></li>
                 <li><a href="?page=cabang">Cabang</a></li>
-                <li><a href="?page=pengajuan">Pengajuan</a></li>
-                <li><a href="?page=persetujuan">Persetujuan</a></li>
 
               </ul>
             </li>
@@ -60,6 +58,9 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-shopping-chart"></i> Barang <b class="caret"></b></a>
               <ul class="dropdown-menu">
+                
+                <li><a href="?page=pengajuan">Pengajuan</a></li>
+                <li><a href="?page=persetujuan">Persetujuan</a></li>
                 <li><a href="?page=barang">Barang</a></li>
                 <li><a href="?page=jenis">Jenis</a></li>
                 <li><a href="?page=merk">Merek/Model</a></li>

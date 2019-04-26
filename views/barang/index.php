@@ -2,7 +2,7 @@
 	include $_SERVER['DOCUMENT_ROOT'].'/pbd/models/barang.php';  
 	$barang = new barang($connection);
 ?>
- 
+    
  <div class="row">
   <div class="col-lg-12">
     <h1>Barang <small>Data Barang</small></h1>
