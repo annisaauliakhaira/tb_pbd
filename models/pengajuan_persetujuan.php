@@ -11,9 +11,10 @@
 			return $hasil;
 		}
 
-		function input($kode_pengajuan_persetujuan,$kode_jenis,$jumlah_barang,$kode_satuan,$tgl_pengajuan,$tgl_disetujui,$nipp,$keterangan){
+		function input($kode_pengajuan_persetujuan,$tgl_pengajuan,$tgl_disetujui,$kode_jenis,$nipp,$jumlah_barang,$kode_satuan,$keterangan){
 			// die(far_dump([nama_pegawai, $nama_pengajuan_persetujuan, $alamat, $keterangan]));
-			$sql="insert into pengajuan_persetujuan values('$kode_pengajuan_persetujuan', '$kode_jenis', '$jumlah_barang', '$kode_satuan', '$tgl_pengajuan', '$tgl_disetujui', '$nipp', '$keterangan')";
+			$sql="insert INTO public.pengajuan_persetujuan(kode_pengajuan_persetujuan, tgl_pengajuan, tgl_disetujui, kode_jenis, nipp, jumlah_barang, kode_satuan, keterangan)	VALUES ('$kode_pengajuan_persetujuan','$tgl_pengajuan','$tgl_disetujui','$kode_jenis','$nipp',$jumlah_barang,'$kode_satuan','$keterangan')";
+			// die($sql);
 			$hasil = pg_query($sql);
 			header("location:/pbd?page=pengajuan_persetujuan");
 		}
