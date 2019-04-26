@@ -32,27 +32,26 @@
                             <option value="2">kurang baik</option>
                             <option value="3">rusak</option>
                         </select>
-                    </div>   
+                    </div>
 
                     <div class="form-group">
                         <label class="control-label" for="th_pembuatan">Tahun Pembuatan</label>
                         <input type="text" name="th_pembuatan" class="form-control" required>
-                    </div>               
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="no_livret">No Livret</label>
+                        <input type="text" name="no_livret" class="form-control" required>
+                    </div>
 
                     <div class="form-group">
                         <label class="control-label" for="kode_persetujuan">Kode Persetujuan</label>
                         <select class="form-control" name="kode_persetujuan">
-                              <?php
-                                $sql = "SELECT persetujuan.kode_persetujuan, jenis.nama_jenis from persetujuan join pengajuan on persetujuan.kode_pengajuan = pengajuan.kode_pengajuan join jenis on pengajuan.kode_jenis = jenis.kode_jenis where pengajuan.total > (select count(barang.kode_barang) from barang where barang.kode_persetujuan = persetujuan.kode_persetujuan) ";
-                                $eksekusi = pg_query($sql);
-                                while ($persetujuan = pg_fetch_assoc($eksekusi)) {
-                                echo '<option value="'.$persetujuan['kode_persetujuan'].'">'.$persetujuan['kode_persetujuan'].'-'.$persetujuan['nama_jenis'].'</option>';
-                                }
-                              ?>
-                          </select>
+
+                        </select>
                     </div>
 
-                
+
                     <div class="form-group">
                         <label class="control-label" for="kode_merk">Merek / Model</label>
                          <select class="form-control" name="kode_merk">
@@ -65,12 +64,12 @@
 				              ?>
 				          </select>
                     </div>
-                    
+
                     <div class="form-group">
                         <label class="control-label" for="keterangan">Keterangan</label>
                         <input type="text"  name="keterangan" class="form-control" required>
                     </div>
-               
+
 
             </div>
             <div class="row">

@@ -1,8 +1,8 @@
 <?php
 	$host = "localhost";
 	$user = "postgres";
-	$pass = "131296";
-	$database = "pbd";
+	$pass = "root";
+	$database = "tb_pbd_icha";
 	$port = "5432";
 
 ?>
