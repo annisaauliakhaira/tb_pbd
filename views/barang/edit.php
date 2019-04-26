@@ -14,7 +14,7 @@
 		<form action="/pbd/controller/barang_controller.php?aksi=update" method="post">
             <div class="row">
 
-                <?php 
+                <?php
                     if(isset($_GET['kode_barang'])){
                         $kode_barang = $_GET['kode_barang'];
                     }else{
@@ -42,7 +42,7 @@
                             <option value="3">rusak</option>
                         </select>
 
-                    </div> 
+                    </div>
 
                     <div class="form-group">
                         <label class="control-label" for="no_livret">Dokumentasi Barang No Livret</label>
@@ -56,15 +56,7 @@
 
                     <div class="form-group">
                         <label class="control-label" for="kode_persetujuan">Kode Persetujuan</label>
-                        <select class="form-control" name="kode_persetujuan">
-                              <?php
-                                $sql = "select persetujuan.kode_persetujuan from persetujuan join pengajuan on persetujuan.kode_pengajuan = pengajuan.kode_pengajuan where pengajuan.total > (select count(barang.kode_barang) from barang where barang.kode_persetujuan = persetujuan.kode_persetujuan) ";
-                                $eksekusi = pg_query($sql);
-                                while ($persetujuan = pg_fetch_assoc($eksekusi)) {
-                                echo '<option value="'.$persetujuan['kode_persetujuan'].'">'.$persetujuan['kode_persetujuan'].'</option>';
-                                }
-                              ?>
-                          </select>
+                        
                     </div>
 
                     <div class="form-group">
@@ -84,10 +76,10 @@
                         <label class="control-label" for="keterangan">Keterangan</label>
                         <input type="text" value="<?php echo $data['keterangan']; ?>" name="keterangan" class="form-control" required>
                     </div>
-                <?php 
+                <?php
                     }
                 ?>
- 
+
             </div>
             <div class="row">
                 <input type="submit" class="btn btn-succes" name="tambah" value="Simpan">

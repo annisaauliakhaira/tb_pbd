@@ -33,7 +33,7 @@
 
 		public function cari($cari){
 				$sql = "SELECT * from cabang where  kode_cabang LIKE'%$cari%' OR nama_cabang LIKE '%$cari%' OR alamat LIKE '%$cari%' OR keterangan LIKE '%$cari%' ";
-			
+
 			// die($sql);
 			$hasil = pg_query($sql);
 			return $hasil;
