@@ -36,7 +36,7 @@
 				$sql = "SELECT * from jenis where  nama_jenis LIKE '%$cari%' ";
 			}else{
 				//ada integer
-				$sql = "SELECT * from jenis where  kode_jenis=$cari OR nama_jenis LIKE '%$cari%' ";
+				$sql = "SELECT * from jenis where  kode_jenis LIKE '%$cari%' OR nama_jenis LIKE '%$cari%' ";
 			}
 			// die($sql);
 			$hasil = pg_query($sql);

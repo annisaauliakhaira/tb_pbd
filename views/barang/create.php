@@ -61,7 +61,7 @@
                         <label class="control-label" for="kode_persetujuan">Kode Persetujuan</label>
                         <select class="form-control" name="kode_persetujuan">
                           <?php
-                            $sql = "select kode_pengajuan_persetujuan, jenis.nama_jenis from pengajuan_persetujuan join jenis on pengajuan_persetujuan.kode_jenis = jenis.kode_jenis where pengajuan_persetujuan.tgl_disetujui is not null";
+                            $sql = "select kode_pengajuan_persetujuan, jenis.nama_jenis from pengajuan_persetujuan join jenis on pengajuan_persetujuan.kode_jenis = jenis.kode_jenis where jumlah_barang > (select count(kode_pengajuan_persetujuan) from barang where kode_pengajuan_persetujuan=pengajuan_persetujuan.kode_pengajuan_persetujuan)  ";
                             $eksekusi = pg_query($sql);
                             while ($select = pg_fetch_assoc($eksekusi)) {
                             echo '<option value="'.$select['kode_pengajuan_persetujuan'].'">'.$select['kode_pengajuan_persetujuan'].'-'.$select['nama_jenis'].'</option>';

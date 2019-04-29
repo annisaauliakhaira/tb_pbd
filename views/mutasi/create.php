@@ -25,44 +25,48 @@
                         <input type="date" name="tgl_mutasi" class="form-control" required>
                     </div>
 
+                    <div class="form-group">
+                        <label class="control-label" for="nama_cabang">Cabang</label>
+                        <select class="form-control" name="kode_cabang" id="cabang">
+                          <option value="">--pilihan--</option>
+                              <?php
+                                $sql = "select kode_cabang, nama_cabang from cabang";
+                                $eksekusi = pg_query($sql);
+                                while ($cabang = pg_fetch_assoc($eksekusi)) {
+                                echo '<option value="'.$cabang['kode_cabang'].'">'.$cabang['nama_cabang'].'</option>';
+                                }
+                              ?>
+                          </select>
+                    </div>
+
                     
                     <div class="form-group">
                         <label class="control-label" for="nipp">Pegawai</label>
-                         <select class="form-control" name="nipp">
-				              <?php
-				                $sql = "select nipp, nama_pegawai from pegawai";
-				                $eksekusi = pg_query($sql);
-				                while ($jabatan = pg_fetch_assoc($eksekusi)) {
-				                echo '<option value="'.$jabatan['nipp'].'">'.$jabatan['nama_pegawai'].'</option>';
-				                }
-				              ?>
-				          </select>
+                         <select class="form-control" name="nipp" id="pegawai">
+			              
+				                 </select>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="nama_cabang">Cabang Sebelum</label>
-                        <select class="form-control" name="kode_cabang_sebelum">
+                        <label class="control-label" for="kode_barang">Kode Barang</label>
+                        <select class="form-control" name="kode_barang">
                               <?php
-                                $sql = "select kode_cabang, nama_cabang from cabang";
+                                $sql = "select kode_barang from barang";
                                 $eksekusi = pg_query($sql);
-                                while ($cabang = pg_fetch_assoc($eksekusi)) {
-                                echo '<option value="'.$cabang['kode_cabang'].'">'.$cabang['nama_cabang'].'</option>';
+                                while ($barang = pg_fetch_assoc($eksekusi)) {
+                                echo '<option value="'.$barang['kode_barang'].'">'.$barang['kode_barang'].'</option>';
                                 }
                               ?>
                           </select>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="nama_cabang">Cabang Sesudah</label>
-                        <select class="form-control" name="kode_cabang_sesudah">
-                              <?php
-                                $sql = "select kode_cabang, nama_cabang from cabang";
-                                $eksekusi = pg_query($sql);
-                                while ($cabang = pg_fetch_assoc($eksekusi)) {
-                                echo '<option value="'.$cabang['kode_cabang'].'">'.$cabang['nama_cabang'].'</option>';
-                                }
-                              ?>
-                          </select>
+                        <label class="control-label" for="kondisi">Kondisi Barang</label>
+                        <select name="kondisi" class="form-control" >
+                            <option value="1">baik</option>
+                            <option value="2">kurang baik</option>
+                            <option value="3">rusak</option>
+                        </select>
                     </div>
                
 

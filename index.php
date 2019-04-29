@@ -64,7 +64,6 @@
                 <li><a href="?page=jenis">Jenis</a></li>
                 <li><a href="?page=satuan">Satuan</a></li>
                 <li><a href="?page=merk">Merek/Model</a></li>
-                <li><a href="?page=cabang_barang">Cabang Barang</a></li>
                 
               </ul>
             </li>
@@ -73,7 +72,14 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-shopping-chart"></i> Mutasi <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="?page=mutasi">Mutasi</a></li>
-                <li><a href="?page=mutasi_barang">Mutasi Barang</a></li>
+                
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-shopping-chart"></i> Laporan <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="?page=laporan">Laporan Barang</a></li>
                 
               </ul>
             </li>
@@ -237,6 +243,8 @@
                 }else{
                   include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/management/satuan/index.php';
                 }
+              }elseif($page=='laporan'){  
+                include $_SERVER['DOCUMENT_ROOT'].'/pbd/views/laporan/index.php';
               }
             }
 
@@ -244,6 +252,32 @@
       </div><!-- /#page-wrapper -->
 
     </div><!-- /#wrapper -->
+
+
+    <script src="/pbd/js/jquery-1.9.1.min.js"></script>
+
+        <script type="text/javascript">
+      
+      $(document).on('change','#cabang',function()
+      {
+        var kode_cabang=document.getElementById("cabang").options[document.getElementById("cabang").selectedIndex].value;
+        $('#pegawai').html("");
+        console.log(kode_cabang);
+          $.ajax({
+            url: '/pbd/controller/mutasi_controller.php?aksi=pegawai&kode_cabang='+kode_cabang+'', data: "", dataType: 'json', success: function(rows)
+                {
+                  console.log(rows);
+                  for (var i in rows)
+                  {
+                    var row = rows[i];
+                    var nipp=row.nipp;
+                    var nama_pegawai=row.nama_pegawai;
+                    $('#pegawai').append('<option value="'+nipp+'">'+nama_pegawai+'</option>');
+                  }
+                }
+            });
+      });
+    </script>
 
     <!-- JavaScript -->
     <script src="assets/js/jquery-1.10.2.js"></script>

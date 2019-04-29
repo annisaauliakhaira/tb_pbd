@@ -14,8 +14,9 @@
       <li><a href="index.html"><i class="icon-dashboard"></i> Dashboard</a></li>
       <li class="active"><i class="icon-file-alt"></i> Barang</li>
       <li>
-      	<form action="index.php" method="get">
+      	<form action="/pbd/index.php" method="get">
 		<label>  Cari :</label>
+		<input type="hidden" value="barang" name="page">
 		<input type="text" name="cari">
 		<input type="submit" value="Cari">
 		</form>

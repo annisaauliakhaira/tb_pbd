@@ -33,10 +33,10 @@
 
 		public function cari($cari){
 			if((int)$cari==0){
-				$sql = "select pegawai.nipp, pegawai.nama_pegawai, pegawai.alamat, jabatan.nama_jabatan, cabang.nama_cabang, pegawai.jenis_kelamin, pegawai.keterangan from pegawai join jabatan on jabatan.kode_jabatan=pegawai.kode_jabatan join cabang on cabang.kode_cabang=pegawai.kode_cabang where  pegawai.nama_pegawai LIKE '%$cari%' OR pegawai.alamat LIKE '%$cari%' OR jabatan.nama_jabatan LIKE '%$cari%' OR pegawai.alamat LIKE '%$cari%' OR jabatan.nama_jabatan LIKE '%$cari%' OR cabang.nama_cabang LIKE '%$cari%'  OR pegawai.keterangan LIKE '%$cari%' ";
+				$sql = "SELECT pegawai.nipp, pegawai.nama_pegawai, pegawai.alamat, jabatan.nama_jabatan, cabang.nama_cabang, pegawai.jenis_kelamin, pegawai.keterangan from pegawai join jabatan on jabatan.kode_jabatan=pegawai.kode_jabatan join cabang on cabang.kode_cabang=pegawai.kode_cabang where  pegawai.nama_pegawai LIKE '%$cari%' OR pegawai.alamat LIKE '%$cari%' OR jabatan.nama_jabatan LIKE '%$cari%' OR pegawai.alamat LIKE '%$cari%' OR jabatan.nama_jabatan LIKE '%$cari%' OR cabang.nama_cabang LIKE '%$cari%'  OR pegawai.keterangan LIKE '%$cari%' ";
 			}else{
 				//ada integer
-				$sql = "select pegawai.nipp, pegawai.nama_pegawai, pegawai.alamat, jabatan.nama_jabatan, cabang.nama_cabang, pegawai.jenis_kelamin, pegawai.keterangan from pegawai join jabatan on jabatan.kode_jabatan=pegawai.kode_jabatan join cabang on cabang.kode_cabang=pegawai.kode_cabang where  pegawai.nipp=$cari OR pegawai.nama_pegawai LIKE '%$cari%' OR pegawai.alamat LIKE '%$cari%' OR jabatan.nama_jabatan LIKE '%$cari%' OR pegawai.alamat LIKE '%$cari%' OR jabatan.nama_jabatan LIKE '%$cari%' OR cabang.nama_cabang LIKE '%$cari%' OR pegawai.jenis_kelamin=$cari OR pegawai.keterangan LIKE '%$cari%' ";
+				$sql = "SELECT pegawai.nipp, pegawai.nama_pegawai, pegawai.alamat, jabatan.nama_jabatan, cabang.nama_cabang, pegawai.jenis_kelamin, pegawai.keterangan from pegawai join jabatan on jabatan.kode_jabatan=pegawai.kode_jabatan join cabang on cabang.kode_cabang=pegawai.kode_cabang where  pegawai.nipp=$cari OR pegawai.nama_pegawai LIKE '%$cari%' OR pegawai.alamat LIKE '%$cari%' OR jabatan.nama_jabatan LIKE '%$cari%' OR pegawai.alamat LIKE '%$cari%' OR jabatan.nama_jabatan LIKE '%$cari%' OR cabang.nama_cabang LIKE '%$cari%' OR pegawai.jenis_kelamin=$cari OR pegawai.keterangan LIKE '%$cari%' ";
 			}
 			// die($sql);
 			$hasil = pg_query($sql);

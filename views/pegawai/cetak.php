@@ -50,12 +50,13 @@
               <td><?php echo $data['nipp'];  ?></td>
               <td><?php echo $data['nama_pegawai'];  ?></td>
               <td><?php echo $data['alamat'];  ?></td>
-              <td><?php echo $data['jenis_kelamin'];  ?></td>
               <td><?php if ($data['jenis_kelamin'] ==1){
-							echo "laki-laki";
-						}elseif ($data['jenis_kelamin'] ==2) {
-							echo "perempuan";
-						}  ?></td>
+    							   echo "laki-laki";
+    						  }elseif ($data['jenis_kelamin'] ==2) {
+    							   echo "perempuan";
+    						} ?> 
+              </td>
+              <td><?php echo $data['nama_jabatan'];  ?></td>
             </tr>
             <?php 
               }

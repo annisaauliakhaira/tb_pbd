@@ -36,7 +36,7 @@
 				$sql = "SELECT * from satuan where  nama_satuan LIKE '%$cari%' ";
 			}else{
 				//ada integer
-				$sql = "SELECT * from satuan where  kode_satuan=$cari OR nama_satuan LIKE '%$cari%' ";
+				$sql = "SELECT * from satuan where  kode_satuan lIKE '%$cari%' OR nama_satuan LIKE '%$cari%' ";
 			}
 			// die($sql);
 			$hasil = pg_query($sql);

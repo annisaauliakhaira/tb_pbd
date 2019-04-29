@@ -25,8 +25,10 @@
 					<th>Kode Mutasi</th>
 					<th>Tanggal Mutasi</th>
 					<th>Pegawai</th>
-					<th>Cabang Sebelum</th>
-					<th>Cabang Sesudah</th>
+					<th>Cabang</th>
+					<th>Kode Barang</th>
+					<th>Jenis Barang</th>
+					<th>Kondisi Barang</th>
 					<th>Action</th>
 				</tr>
 
@@ -41,8 +43,19 @@
 					<td><?php echo $data->kode_mutasi; ?></td>
 					<td><?php echo $data->tgl_mutasi; ?></td>
 					<td><?php echo $data->nama_pegawai; ?></td>
-					<td><?php echo $data->cabang_sebelum; ?></td>
-					<td><?php echo $data->cabang_sesudah; ?></td>
+					<td><?php echo $data->nama_cabang; ?></td>
+					<td><?php echo $data->kode_barang; ?></td>
+					<td><?php echo $data->nama_jenis; ?></td>
+					<td><?php
+						if ($data->kondisi ==1){
+							echo "baik";
+						}elseif ($data->kondisi ==2) {
+							echo "kurang baik";
+						}elseif ($data->kondisi ==3) {
+							echo "rusak";
+						}
+						?>
+					</td>
 					<td align="center">
 						<a href="/pbd?page=mutasi&aksi=edit&kode_mutasi='<?php echo $data->kode_mutasi; ?>'" class="btn btn-info btn-xs"><i class="fa fa-edit"></i> Edit </a>
         				<a href="/pbd/controller/mutasi_controller.php?aksi=delete&id='<?php echo $data->kode_mutasi; ?>'" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
